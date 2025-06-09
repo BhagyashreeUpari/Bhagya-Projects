@@ -21,7 +21,7 @@ resource "aws_subnet" "subnet_1"{
     availability_zone = "ap-south-1a"
     map_public_ip_on_launch = true
     tags ={
-        Name = subnet-1
+        Name = "subnet-1"
     }
 }
 
@@ -32,18 +32,24 @@ resource "aws_subnet" "subnet_2"{
     availability_zone = "ap-south-1b"
     map_public_ip_on_launch = true
     tags ={
-        Name = subnet-2
+        Name = "subnet-2"
     }
 }
 
 #creating the igw 
 resource "aws_internet_gateway" "myigw"{
     vpc_id =aws_vpc.myvpc.id
+    tags ={
+        Name = "my-igw"
+    }
 }
 
 #creating the route table
 resource "aws_route_table" "public_route_table"{
     vpc_id =aws_vpc.myvpc.id
+    tags ={
+        Name = "my-route-table"
+    }
 }
 
 #creating the route
