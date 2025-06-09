@@ -23,7 +23,7 @@ pipeline{
             steps{
                 sh 'pwd;cd project-1/; terraform init'
                 sh 'pwd;cd project-1/; terraform plan -out tfplan'
-                sh 'pwd;cd project-1/; terraform show -no-color tfpan >> tfplan.txt'
+                sh 'pwd;cd project-1/; terraform show -no-color tfplan >> tfplan.txt'
             }
         }
         stage ('approval'){
